@@ -17,6 +17,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
     testImplementation(kotlin("test"))
+    val mockkVersion = "1.13.8"
+    testImplementation("io.mockk:mockk:${mockkVersion}")
 }
 
 tasks.test {
@@ -24,7 +26,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(11)
 }
 
 application {
