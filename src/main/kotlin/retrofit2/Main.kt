@@ -1,17 +1,31 @@
 package retrofit2
 
 import kotlinx.coroutines.runBlocking
-import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
+import kotlin.system.exitProcess
 
-suspend fun main(args: Array<String>) {
+fun main(args: Array<String>) {
+    var retrofit: Retrofit? = retrofitBuild()
+    var service = retrofit?.create(GitHubService::class.java)
+
     runBlocking {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        val list = try {
+            // ここがsuspend
+            service?.listRepos("octocat")
+        } catch (e: IOException) {
+            println(e.message)
+        } catch (e: HttpException) {
+            println(e.message)
+        }
 
-        val service = retrofit.create(GitHubService::class.java)
-        val list = service.listRepos("octocat")
         println(list)
     }
+    println("end.")
+    // ここまで出力されるけど、いつまでたってもプロセスが終了しない
+    // asyncにしてもlaunchにしてもだめ
+
+    service = null
+    retrofit = null
+
+    exitProcess(0)
 }
