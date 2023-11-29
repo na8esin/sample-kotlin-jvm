@@ -10,7 +10,7 @@ class Hello {
             println(this)
         }
         kotlin.run { // thisが参照できない
-            println(tihs)
+            // println(tihs)
         }
     }
 
@@ -20,7 +20,7 @@ class Hello {
                 println(this)
             }
             kotlin.run { // thisが参照できない
-                println(tihs)
+                // println(tihs)
             }
         }
     }
