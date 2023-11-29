@@ -1,7 +1,7 @@
 package list
 
 /**
- * -ea JVM optionが必要
+ * assertには -ea JVM optionが必要
  */
 fun main() {
     val list = mutableListOf("りんご", "ゴリラ", "ラッパ")
