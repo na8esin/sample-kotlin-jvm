@@ -12,6 +12,8 @@ import java.util.concurrent.CountDownLatch
 fun main() {
     val latch = CountDownLatch(1)
     runBlocking {
+         // Dispatchers.Defaultじゃないと
+         // latch.await()がいつまでも終わらない
         launch(Dispatchers.Default) {
             delay(2000)
             println("Start")
