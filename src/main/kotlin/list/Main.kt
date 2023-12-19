@@ -11,4 +11,7 @@ fun main() {
     val list2 = mutableListOf("りんご", "ゴリラ", "ラッパ")
     list2.add(2, "パンダ")
     assert(list2 == mutableListOf("りんご", "ゴリラ", "パンダ", "ラッパ"))
+
+    val list3 = listOf("はやぶさ")
+    // list3.add("かがやき") // メソッドがない
 }

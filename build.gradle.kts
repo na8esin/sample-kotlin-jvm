@@ -17,6 +17,10 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
+    implementation("io.jsonwebtoken:jjwt-api:0.12.3")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.3")
+    runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.3")
+
     testImplementation(kotlin("test"))
     val mockkVersion = "1.13.8"
     testImplementation("io.mockk:mockk:${mockkVersion}")
